@@ -34,16 +34,16 @@
         <module>dubbo-rpc-dubbo</module>
         <module>dubbo-rpc-injvm</module>
         <module>dubbo-rpc-rest</module>
-        <module>dubbo-rpc-grpc</module>
-        <module>dubbo-rpc-triple</module>
+<!--        <module>dubbo-rpc-grpc</module>-->
+<!--        <module>dubbo-rpc-triple</module>-->
     </modules>
 
     <dependencies>
-        <dependency>
-            <groupId>org.apache.dubbo</groupId>
-            <artifactId>dubbo-test-check</artifactId>
-            <version>${project.parent.version}</version>
-            <scope>test</scope>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.apache.dubbo</groupId>-->
+<!--            <artifactId>dubbo-test-check</artifactId>-->
+<!--            <version>${project.parent.version}</version>-->
+<!--            <scope>test</scope>-->
+<!--        </dependency>-->
     </dependencies>
 </project>

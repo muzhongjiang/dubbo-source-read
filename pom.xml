@@ -14,7 +14,8 @@
   See the License for the specific language governing permissions and
   limitations under the License.
   -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
 
@@ -124,7 +125,7 @@
         <maven_flatten_version>1.2.5</maven_flatten_version>
         <maven_enforce_version>3.0.0-M3</maven_enforce_version>
         <apache-rat-plugin.version>0.13</apache-rat-plugin.version>
-        <arguments />
+        <arguments/>
         <checkstyle.skip>true</checkstyle.skip>
         <checkstyle_unix.skip>true</checkstyle_unix.skip>
         <rat.skip>true</rat.skip>
@@ -148,15 +149,15 @@
         <module>dubbo-compatible</module>
         <module>dubbo-dependencies-bom</module>
         <module>dubbo-distribution</module>
-        <module>dubbo-configcenter</module>
+        <!--        <module>dubbo-configcenter</module>-->
         <module>dubbo-dependencies</module>
         <module>dubbo-metadata</module>
         <module>dubbo-metrics</module>
         <module>dubbo-build-tools</module>
-        <module>dubbo-spring-boot</module>
-        <module>dubbo-native</module>
-        <module>dubbo-test</module>
-        <module>dubbo-native-plugin</module>
+<!--        <module>dubbo-spring-boot</module>-->
+        <!--        <module>dubbo-native</module>-->
+        <!--        <module>dubbo-native-plugin</module>-->
+        <!--        <module>dubbo-test</module>-->
     </modules>
 
 
@@ -280,81 +281,81 @@
             </activation>
             <build>
                 <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-checkstyle-plugin</artifactId>
-                        <version>${maven_checkstyle_version}</version>
-                        <dependencies>
-                            <dependency>
-                                <groupId>com.puppycrawl.tools</groupId>
-                                <artifactId>checkstyle</artifactId>
-                                <version>8.41</version>
-                            </dependency>
-                            <dependency>
-                                <groupId>org.apache.dubbo</groupId>
-                                <artifactId>dubbo-build-tools</artifactId>
-                                <version>1.0.0</version>
-                            </dependency>
-                        </dependencies>
-                        <executions>
-                            <execution>
-                                <id>checkstyle-validation</id>
-                                <phase>validate</phase>
-                                <configuration>
-                                    <configLocation>codestyle/checkstyle.xml</configLocation>
-                                    <suppressionsLocation>codestyle/checkstyle-suppressions.xml</suppressionsLocation>
-                                    <encoding>UTF-8</encoding>
-                                    <consoleOutput>true</consoleOutput>
-                                    <failOnViolation>true</failOnViolation>
-                                    <skip>${checkstyle.skip}</skip>
-                                    <excludes>
-                                        **/JSONWriter.java,
-                                        **/org/apache/dubbo/common/threadlocal/InternalThreadLocal.java,
-                                        **/org/apache/dubbo/common/threadlocal/InternalThreadLocalMap.java,
-                                        **/org/apache/dubbo/common/timer/TimerTask.java,
-                                        **/org/apache/dubbo/common/timer/Timer.java,
-                                        **/org/apache/dubbo/common/timer/Timeout.java,
-                                        **/org/apache/dubbo/common/timer/HashedWheelTimer.java,
-                                        **/org/apache/dubbo/common/utils/CIDRUtils.java,
-                                        **/org/apache/dubbo/common/utils/Utf8Utils.java,
-                                        **/org/apache/dubbo/common/serialize/protobuf/support/wrapper/MapValue.java,
-                                        **/org/apache/dubbo/common/serialize/protobuf/support/wrapper/ThrowablePB.java,
-                                        **/org/apache/dubbo/triple/TripleWrapper.java,
-                                        **/istio/v1/auth/Ca.java,
-                                        **/istio/v1/auth/IstioCertificateServiceGrpc.java,
-                                        **/com/google/rpc/*,
-                                        **/generated/**/*,
-                                        **/grpc/health/**/*,
-                                        **/target/**/*,
-                                        **/*.json
-                                    </excludes>
-                                </configuration>
-                                <goals>
-                                    <goal>check</goal>
-                                </goals>
-                            </execution>
-                            <execution>
-                                <id>checkstyle-unix-validation</id>
-                                <phase>validate</phase>
-                                <configuration>
-                                    <configLocation>codestyle/checkstyle_unix.xml</configLocation>
-                                    <encoding>UTF-8</encoding>
-                                    <consoleOutput>true</consoleOutput>
-                                    <failOnViolation>true</failOnViolation>
-                                    <skip>${checkstyle_unix.skip}</skip>
-                                    <resourceExcludes>
-                                        **/target/**/*
-                                    </resourceExcludes>
-                                    <resourceExcludes>
-                                        **/generated/**/*
-                                    </resourceExcludes>
-                                </configuration>
-                                <goals>
-                                    <goal>check</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
+<!--                    <plugin>-->
+<!--                        <groupId>org.apache.maven.plugins</groupId>-->
+<!--                        <artifactId>maven-checkstyle-plugin</artifactId>-->
+<!--                        <version>${maven_checkstyle_version}</version>-->
+<!--                        <dependencies>-->
+<!--                            <dependency>-->
+<!--                                <groupId>com.puppycrawl.tools</groupId>-->
+<!--                                <artifactId>checkstyle</artifactId>-->
+<!--                                <version>8.41</version>-->
+<!--                            </dependency>-->
+<!--                            <dependency>-->
+<!--                                <groupId>org.apache.dubbo</groupId>-->
+<!--                                <artifactId>dubbo-build-tools</artifactId>-->
+<!--                                <version>1.0.0</version>-->
+<!--                            </dependency>-->
+<!--                        </dependencies>-->
+<!--                        <executions>-->
+<!--                            <execution>-->
+<!--                                <id>checkstyle-validation</id>-->
+<!--                                <phase>validate</phase>-->
+<!--                                <configuration>-->
+<!--                                    <configLocation>codestyle/checkstyle.xml</configLocation>-->
+<!--                                    <suppressionsLocation>codestyle/checkstyle-suppressions.xml</suppressionsLocation>-->
+<!--                                    <encoding>UTF-8</encoding>-->
+<!--                                    <consoleOutput>true</consoleOutput>-->
+<!--                                    <failOnViolation>true</failOnViolation>-->
+<!--                                    <skip>${checkstyle.skip}</skip>-->
+<!--                                    <excludes>-->
+<!--                                        **/JSONWriter.java,-->
+<!--                                        **/org/apache/dubbo/common/threadlocal/InternalThreadLocal.java,-->
+<!--                                        **/org/apache/dubbo/common/threadlocal/InternalThreadLocalMap.java,-->
+<!--                                        **/org/apache/dubbo/common/timer/TimerTask.java,-->
+<!--                                        **/org/apache/dubbo/common/timer/Timer.java,-->
+<!--                                        **/org/apache/dubbo/common/timer/Timeout.java,-->
+<!--                                        **/org/apache/dubbo/common/timer/HashedWheelTimer.java,-->
+<!--                                        **/org/apache/dubbo/common/utils/CIDRUtils.java,-->
+<!--                                        **/org/apache/dubbo/common/utils/Utf8Utils.java,-->
+<!--                                        **/org/apache/dubbo/common/serialize/protobuf/support/wrapper/MapValue.java,-->
+<!--                                        **/org/apache/dubbo/common/serialize/protobuf/support/wrapper/ThrowablePB.java,-->
+<!--                                        **/org/apache/dubbo/triple/TripleWrapper.java,-->
+<!--                                        **/istio/v1/auth/Ca.java,-->
+<!--                                        **/istio/v1/auth/IstioCertificateServiceGrpc.java,-->
+<!--                                        **/com/google/rpc/*,-->
+<!--                                        **/generated/**/*,-->
+<!--                                        **/grpc/health/**/*,-->
+<!--                                        **/target/**/*,-->
+<!--                                        **/*.json-->
+<!--                                    </excludes>-->
+<!--                                </configuration>-->
+<!--                                <goals>-->
+<!--                                    <goal>check</goal>-->
+<!--                                </goals>-->
+<!--                            </execution>-->
+<!--                            <execution>-->
+<!--                                <id>checkstyle-unix-validation</id>-->
+<!--                                <phase>validate</phase>-->
+<!--                                <configuration>-->
+<!--                                    <configLocation>codestyle/checkstyle_unix.xml</configLocation>-->
+<!--                                    <encoding>UTF-8</encoding>-->
+<!--                                    <consoleOutput>true</consoleOutput>-->
+<!--                                    <failOnViolation>true</failOnViolation>-->
+<!--                                    <skip>${checkstyle_unix.skip}</skip>-->
+<!--                                    <resourceExcludes>-->
+<!--                                        **/target/**/*-->
+<!--                                    </resourceExcludes>-->
+<!--                                    <resourceExcludes>-->
+<!--                                        **/generated/**/*-->
+<!--                                    </resourceExcludes>-->
+<!--                                </configuration>-->
+<!--                                <goals>-->
+<!--                                    <goal>check</goal>-->
+<!--                                </goals>-->
+<!--                            </execution>-->
+<!--                        </executions>-->
+<!--                    </plugin>-->
                 </plugins>
             </build>
         </profile>
@@ -475,7 +476,9 @@
                                     <failOnMissing>false</failOnMissing>
                                     <licenseMerges>
                                         <licenseMerge>Apache License, Version 2.0|The Apache Software License, Version
-                                            2.0|ASF 2.0|Apache 2|Apache-2.0|Apache 2.0 License|Apache 2.0|Apache License v2.0|Apache License 2.0|The Apache License, Version 2.0|The Apache Software License, Version 2.0
+                                            2.0|ASF 2.0|Apache 2|Apache-2.0|Apache 2.0 License|Apache 2.0|Apache License
+                                            v2.0|Apache License 2.0|The Apache License, Version 2.0|The Apache Software
+                                            License, Version 2.0
                                         </licenseMerge>
                                         <licenseMerge>The MIT License|MIT License</licenseMerge>
                                         <licenseMerge>The 3-Clause BSD License|New BSD License|3-Clause BSD
