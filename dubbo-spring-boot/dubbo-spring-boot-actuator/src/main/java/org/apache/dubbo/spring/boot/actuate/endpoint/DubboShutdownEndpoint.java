@@ -14,16 +14,31 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.dubbo.demo;
+package org.apache.dubbo.spring.boot.actuate.endpoint;
 
-import java.util.concurrent.CompletableFuture;
+import org.apache.dubbo.spring.boot.actuate.endpoint.metadata.AbstractDubboMetadata;
+import org.apache.dubbo.spring.boot.actuate.endpoint.metadata.DubboShutdownMetadata;
 
-public interface DemoService {
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.actuate.endpoint.annotation.Endpoint;
+import org.springframework.boot.actuate.endpoint.annotation.WriteOperation;
 
-    String sayHello(String name);
+import java.util.Map;
 
-    default CompletableFuture<String> sayHelloAsync(String name) {//TODO CompletableFuture 异步
-        return CompletableFuture.completedFuture(sayHello(name));
+/**
+ * Dubbo Shutdown
+ *
+ * @since 2.7.0
+ */
+@Endpoint(id = "dubboshutdown")
+public class DubboShutdownEndpoint extends AbstractDubboMetadata {
+
+    @Autowired
+    private DubboShutdownMetadata dubboShutdownMetadata;
+
+    @WriteOperation
+    public Map<String, Object> shutdown() throws Exception {
+        return dubboShutdownMetadata.shutdown();
     }
 
 }

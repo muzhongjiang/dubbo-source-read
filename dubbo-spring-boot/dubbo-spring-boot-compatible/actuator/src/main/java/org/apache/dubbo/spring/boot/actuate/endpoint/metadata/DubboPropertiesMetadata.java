@@ -14,16 +14,23 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.dubbo.demo;
+package org.apache.dubbo.spring.boot.actuate.endpoint.metadata;
 
-import java.util.concurrent.CompletableFuture;
+import org.springframework.stereotype.Component;
 
-public interface DemoService {
+import java.util.SortedMap;
 
-    String sayHello(String name);
+import static org.apache.dubbo.config.spring.util.EnvironmentUtils.filterDubboProperties;
 
-    default CompletableFuture<String> sayHelloAsync(String name) {//TODO CompletableFuture 异步
-        return CompletableFuture.completedFuture(sayHello(name));
+/**
+ * Dubbo Properties Metadata
+ *
+ * @since 2.7.0
+ */
+@Component
+public class DubboPropertiesMetadata extends AbstractDubboMetadata {
+
+    public SortedMap<String, Object> properties() {
+        return (SortedMap) filterDubboProperties(environment);
     }
-
 }
