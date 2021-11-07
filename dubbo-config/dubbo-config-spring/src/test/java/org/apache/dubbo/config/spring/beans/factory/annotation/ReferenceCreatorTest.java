@@ -48,6 +48,7 @@ import java.util.List;
 import java.util.Map;
 
 import static org.apache.dubbo.common.utils.CollectionUtils.ofSet;
+import static org.apache.dubbo.rpc.Constants.SCOPE_LOCAL;
 import static org.springframework.core.annotation.AnnotationUtils.findAnnotation;
 import static org.springframework.test.annotation.DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD;
 import static org.springframework.util.ReflectionUtils.findField;
@@ -68,7 +69,7 @@ public class ReferenceCreatorTest {
     @DubboReference(
             //interfaceClass = HelloService.class,
             version = "1.0.0", group = "TEST_GROUP", url = "dubbo://localhost:12345",
-            client = "client", generic = false, injvm = false,
+            client = "client", generic = false, scope = SCOPE_LOCAL,
             check = false, init = false, lazy = true,
             stubevent = true, reconnect = "reconnect", sticky = true,
             proxy = "javassist", stub = "org.apache.dubbo.config.spring.api.HelloService", cluster = "failover",

@@ -35,6 +35,7 @@ import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import static org.apache.dubbo.rpc.Constants.SCOPE_LOCAL;
 import static org.springframework.test.annotation.DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD;
 
 @EnableDubbo
@@ -70,7 +71,7 @@ public class LocalCallReferenceAnnotationTest {
 
     @Configuration
     public static class LocalCallConfiguration {
-        @DubboReference(injvm = true)
+        @DubboReference(scope = SCOPE_LOCAL)
         private HelloService helloService;
     }
 

@@ -28,7 +28,8 @@ import java.io.OutputStream;
 import static org.apache.dubbo.common.serialize.Constants.COMPACTED_JAVA_SERIALIZATION_ID;
 
 /**
- * Compacted java serialization implementation
+ * 压缩的java序列化实现
+ * TODO 怎么压缩的 ？
  *
  * <pre>
  *     e.g. &lt;dubbo:protocol serialization="compactedjava" /&gt;

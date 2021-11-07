@@ -23,7 +23,6 @@ import org.apache.dubbo.common.logger.LoggerFactory;
 import org.apache.dubbo.common.serialize.ObjectInput;
 import org.apache.dubbo.common.serialize.ObjectOutput;
 import org.apache.dubbo.common.serialize.Serialization;
-import org.apache.dubbo.common.serialize.java.JavaSerialization;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -33,14 +32,14 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import static org.apache.dubbo.common.serialize.Constants.NATIVE_JAVA_SERIALIZATION_ID;
 
 /**
- * Native java serialization implementation
+ * 原生java序列化实现
  *
  * <pre>
  *     e.g. &lt;dubbo:protocol serialization="nativejava" /&gt;
  * </pre>
  */
 public class NativeJavaSerialization implements Serialization {
-    private static final Logger logger = LoggerFactory.getLogger(JavaSerialization.class);
+    private static final Logger logger = LoggerFactory.getLogger(NativeJavaSerialization.class);
     private final static AtomicBoolean warn = new AtomicBoolean(false);
 
     @Override
@@ -56,9 +55,9 @@ public class NativeJavaSerialization implements Serialization {
     @Override
     public ObjectOutput serialize(URL url, OutputStream output) throws IOException {
         if (warn.compareAndSet(false, true)) {
-            logger.error("Java serialization is unsafe. Dubbo Team do not recommend anyone to use it." +
-                "If you still want to use it, please follow [JEP 290](https://openjdk.java.net/jeps/290)" +
-                "to set serialization filter to prevent deserialization leak.");
+            //TODO ???
+            logger.error("Java 序列化是不安全的。 Dubbo Team 不建议任何人使用。如果还想使用，请关注【JEP 290】(https://openjdk.java.net/jeps/290) 设置序列化过滤器以防止反序列化泄漏。");
+
         }
         return new NativeJavaObjectOutput(output);
     }
@@ -66,9 +65,8 @@ public class NativeJavaSerialization implements Serialization {
     @Override
     public ObjectInput deserialize(URL url, InputStream input) throws IOException {
         if (warn.compareAndSet(false, true)) {
-            logger.error("Java serialization is unsafe. Dubbo Team do not recommend anyone to use it." +
-                "If you still want to use it, please follow [JEP 290](https://openjdk.java.net/jeps/290)" +
-                "to set serialization filter to prevent deserialization leak.");
+            //TODO ???
+            logger.error("Java 序列化是不安全的。 Dubbo Team 不建议任何人使用。 如果您还想使用它，请按照 [JEP 290](https://openjdk.java.net/jeps/290) 设置序列化过滤器以防止反序列化泄漏。");
         }
         return new NativeJavaObjectInput(input);
     }

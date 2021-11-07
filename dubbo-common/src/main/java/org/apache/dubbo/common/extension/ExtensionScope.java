@@ -22,39 +22,29 @@ import org.apache.dubbo.rpc.model.ModuleModel;
 
 /**
  * Extension SPI Scope
+ *
  * @see SPI
  * @see ExtensionDirector
  */
 public enum ExtensionScope {
 
     /**
-     * The extension instance is used within framework, shared with all applications and modules.
-     *
-     * <p>Framework scope SPI extension can only obtain {@link FrameworkModel},
-     * cannot get the {@link ApplicationModel} and {@link ModuleModel}.</p>
-     *
-     * <p></p>
-     * Consideration:
-     * <ol>
-     * <li>Some SPI need share data between applications inside framework</li>
-     * <li>Stateless SPI is safe shared inside framework</li>
-     * </ol>
+     * 扩展实例在框架内使用，与所有应用程序和模块共享。
+     * Framework scope SPI 扩展只能获取FrameworkModel，不能获取ApplicationModel 和ModuleModel。
+     * 考虑：
+     * <li>一些 SPI 需要在框架内的应用程序之间共享数据</li>
+     * <li>无状态 SPI 在框架内安全共享</li>
      */
     FRAMEWORK,
 
     /**
-     * The extension instance is used within one application, shared with all modules of the application,
-     * and different applications create different extension instances.
+     * 扩展实例在一个应用内使用，与应用的所有模块共享，不同的应用创建不同的扩展实例。
+     * 应用范围SPI扩展可以获取FrameworkModel和ApplicationModel，不能获取ModuleModel。
      *
-     * <p>Application scope SPI extension can obtain {@link FrameworkModel} and {@link ApplicationModel},
-     * cannot get the {@link ModuleModel}.</p>
+     * 考虑：
+     * <li>在框架内的不同应用程序中隔离扩展数据</li>
+     * <li>在应用程序内的所有模块之间共享扩展数据</li>
      *
-     * <p></p>
-     * Consideration:
-     * <ol>
-     * <li>Isolate extension data in different applications inside framework</li>
-     * <li>Share extension data between all modules inside application</li>
-     * </ol>
      */
     APPLICATION,
 

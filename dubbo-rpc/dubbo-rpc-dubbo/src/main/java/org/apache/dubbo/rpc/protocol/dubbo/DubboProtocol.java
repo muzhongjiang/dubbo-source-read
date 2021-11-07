@@ -88,11 +88,11 @@ import static org.apache.dubbo.rpc.protocol.dubbo.Constants.SHARE_CONNECTIONS_KE
 
 
 /**
- * dubbo protocol support.
+ * dubbo protocol (dubbo协议)
  */
 public class DubboProtocol extends AbstractProtocol {
 
-    public static final String NAME = "dubbo";
+    public static final String NAME = "dubbo";//
 
     public static final int DEFAULT_PORT = 20880;
     private static final String IS_CALLBACK_SERVICE_INVOKE = "_isCallBackServiceInvoke";

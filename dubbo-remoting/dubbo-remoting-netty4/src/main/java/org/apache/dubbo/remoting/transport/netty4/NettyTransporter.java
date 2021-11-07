@@ -17,13 +17,11 @@
 package org.apache.dubbo.remoting.transport.netty4;
 
 import org.apache.dubbo.common.URL;
-import org.apache.dubbo.remoting.ChannelHandler;
-import org.apache.dubbo.remoting.Client;
-import org.apache.dubbo.remoting.RemotingException;
-import org.apache.dubbo.remoting.RemotingServer;
-import org.apache.dubbo.remoting.Transporter;
+import org.apache.dubbo.remoting.*;
 
 /**
+ * 运输机: netty
+ * <p>
  * Default extension of {@link Transporter} using netty4.x.
  */
 public class NettyTransporter implements Transporter {

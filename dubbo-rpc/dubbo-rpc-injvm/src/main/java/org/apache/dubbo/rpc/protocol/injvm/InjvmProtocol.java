@@ -38,7 +38,7 @@ import static org.apache.dubbo.rpc.Constants.SCOPE_LOCAL;
 import static org.apache.dubbo.rpc.Constants.SCOPE_REMOTE;
 
 /**
- * InjvmProtocol
+ * Injvm Protocol（本地执行协议：本地调试使用）
  */
 public class InjvmProtocol extends AbstractProtocol implements Protocol {
 

@@ -32,13 +32,12 @@ import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
- * ShortestResponseLoadBalance
- * </p>
- * Filter the number of invokers with the shortest response time of
- * success calls and count the weights and quantities of these invokers in last slide window.
- * If there is only one invoker, use the invoker directly;
- * if there are multiple invokers and the weights are not the same, then random according to the total weight;
- * if there are multiple invokers and the same weight, then randomly called.
+ * "响应时间最短" 路由
+ * <p>
+ * 筛选成功调用响应时间最短的调用者数量，并统计这些调用者在最后一个滑动窗口中的权重和数量。
+ * 1、如果只有一个调用者，直接使用调用者；
+ * 2、如果有多个调用者且权重不相同，则根据总权重随机；
+ * 3、如果有多个调用者且权重相同，则随机调用。
  */
 public class ShortestResponseLoadBalance extends AbstractLoadBalance implements ScopeModelAware {
 

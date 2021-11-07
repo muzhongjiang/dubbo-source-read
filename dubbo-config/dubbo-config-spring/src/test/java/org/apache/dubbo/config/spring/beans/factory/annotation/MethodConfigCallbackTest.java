@@ -40,13 +40,15 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import static org.apache.dubbo.rpc.Constants.SCOPE_LOCAL;
+
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(
-        classes = {
-                ProviderConfiguration.class,
-                MethodConfigCallbackTest.class,
-                MethodConfigCallbackTest.MethodCallbackConfiguration.class
-        })
+    classes = {
+        ProviderConfiguration.class,
+        MethodConfigCallbackTest.class,
+        MethodConfigCallbackTest.MethodCallbackConfiguration.class
+    })
 @TestPropertySource(properties = {
     "dubbo.protocol.port=-1",
     "dubbo.registry.address=zookeeper://127.0.0.1:2181"
@@ -74,15 +76,15 @@ public class MethodConfigCallbackTest {
     private ConfigurableApplicationContext context;
 
     @DubboReference(check = false, async = true,
-        injvm = false, // Currently local call is not supported method callback cause by Injvm protocol is not supported ClusterFilter
+        scope = SCOPE_LOCAL, // Currently local call is not supported method callback cause by Injvm protocol is not supported ClusterFilter
         methods = {@Method(name = "sayHello",
-        oninvoke = "methodCallback.oninvoke1",
-        onreturn = "methodCallback.onreturn1",
-        onthrow = "methodCallback.onthrow1")})
+            oninvoke = "methodCallback.oninvoke1",
+            onreturn = "methodCallback.onreturn1",
+            onthrow = "methodCallback.onthrow1")})
     private HelloService helloServiceMethodCallBack;
 
     @DubboReference(check = false, async = true,
-            injvm = false, // Currently local call is not supported method callback cause by Injvm protocol is not supported ClusterFilter
+            scope = SCOPE_LOCAL, // Currently local call is not supported method callback cause by Injvm protocol is not supported ClusterFilter
             methods = {@Method(name = "sayHello",
             oninvoke = "methodCallback.oninvoke2",
             onreturn = "methodCallback.onreturn2",
@@ -102,7 +104,7 @@ public class MethodConfigCallbackTest {
             }).start();
         }
         int i = 0;
-        while (MethodCallbackImpl.cnt.get() < ( 2 * threadCnt * callCnt)){
+        while (MethodCallbackImpl.cnt.get() < (2 * threadCnt * callCnt)) {
             // wait for async callback finished
             try {
                 i++;

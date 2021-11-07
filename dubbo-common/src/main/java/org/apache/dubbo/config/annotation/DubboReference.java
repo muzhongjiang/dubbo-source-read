@@ -108,12 +108,7 @@ public @interface DubboReference {
     @Deprecated
     boolean generic() default false;
 
-    /**
-     * When enable, prefer to call local service in the same JVM if it's present, default value is true
-     * @deprecated using scope="local" or scope="remote" instead
-     */
-    @Deprecated
-    boolean injvm() default true;
+
 
     /**
      * Check if service provider is available during boot up, default value is true

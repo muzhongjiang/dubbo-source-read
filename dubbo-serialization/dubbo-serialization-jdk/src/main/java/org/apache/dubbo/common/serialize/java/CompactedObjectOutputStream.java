@@ -22,7 +22,7 @@ import java.io.ObjectStreamClass;
 import java.io.OutputStream;
 
 /**
- * Compacted java object output implementation
+ * 压缩的java对象输出实现
  */
 public class CompactedObjectOutputStream extends ObjectOutputStream {
     public CompactedObjectOutputStream(OutputStream out) throws IOException {
@@ -32,7 +32,7 @@ public class CompactedObjectOutputStream extends ObjectOutputStream {
     @Override
     protected void writeClassDescriptor(ObjectStreamClass desc) throws IOException {
         Class<?> clazz = desc.forClass();
-        if (clazz.isPrimitive() || clazz.isArray()) {
+        if (clazz.isPrimitive() || clazz.isArray()) {// 对象是否表示原始类型/数组
             write(0);
             super.writeClassDescriptor(desc);
         } else {

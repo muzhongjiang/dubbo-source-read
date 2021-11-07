@@ -19,15 +19,10 @@ package org.apache.dubbo.common.serialize.java;
 
 import org.apache.dubbo.common.utils.ClassUtils;
 
-import java.io.EOFException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectStreamClass;
-import java.io.StreamCorruptedException;
+import java.io.*;
 
 /**
- * Compacted java object input implementation
+ * 压缩的java对象输入实现
  */
 public class CompactedObjectInputStream extends ObjectInputStream {
     private ClassLoader mClassLoader;
@@ -38,7 +33,7 @@ public class CompactedObjectInputStream extends ObjectInputStream {
 
     public CompactedObjectInputStream(InputStream in, ClassLoader cl) throws IOException {
         super(in);
-        mClassLoader = cl == null ? ClassUtils.getClassLoader() : cl;
+        mClassLoader = (cl == null) ? ClassUtils.getClassLoader() : cl;
     }
 
     @Override

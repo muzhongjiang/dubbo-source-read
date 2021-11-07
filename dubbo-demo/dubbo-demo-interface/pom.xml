@@ -31,9 +31,6 @@
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>org.apache.dubbo</groupId>
-            <artifactId>dubbo-rpc-rest</artifactId>
-        </dependency>
+
     </dependencies>
 </project>

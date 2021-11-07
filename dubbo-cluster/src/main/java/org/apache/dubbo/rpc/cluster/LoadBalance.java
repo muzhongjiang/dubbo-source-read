@@ -28,9 +28,9 @@ import java.util.List;
 
 /**
  * LoadBalance. (SPI, Singleton, ThreadSafe)
- * <p>
- * <a href="http://en.wikipedia.org/wiki/Load_balancing_(computing)">Load-Balancing</a>
  *
+ * https://dubbo.apache.org/zh/docs/advanced/loadbalance
+
  * @see org.apache.dubbo.rpc.cluster.Cluster#join(Directory)
  */
 @SPI(RandomLoadBalance.NAME)
